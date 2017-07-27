@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 
-import OtepDemo from '../components/OtepDemo'
-
 
 export default class BlogIndexRoute extends React.Component {
   render() {
@@ -14,12 +12,9 @@ export default class BlogIndexRoute extends React.Component {
     return (
       <div>
         <Helmet title={siteTitle} />
-        <OtepDemo />
         <p>
-          Written by <strong>
-            {this.props.data.site.siteMetadata.author}
-          </strong>{' '}
-          who lives and works in {this.props.data.site.siteMetadata.homeCity}.
+          {/* {this.props.data.site.siteMetadata.author}{' '}/{' '}
+          {this.props.data.site.siteMetadata.homeCity}. */}
         </p>
         <ul>
           {posts.map(post =>

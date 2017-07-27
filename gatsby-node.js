@@ -10,6 +10,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   return new Promise((resolve) => {
     const blogPost = path.resolve('src/templates/blog-post.js')
     const tagPages = path.resolve('src/templates/tag-page.js')
+
     graphql(`
       {
         allMarkdownRemark(
@@ -46,21 +47,19 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       })
 
       // Tag pages.
-      let tags = []
-      _.each(result.data.allMarkdownRemark.edges, (edge) => {
-        if (_.get(edge, 'node.frontmatter.tags')) {
-          tags = tags.concat(edge.node.frontmatter.tags)
-        }
-      })
-      tags = _.uniq(tags)
+      const tags = _.uniq(result.data.allMarkdownRemark.edges.reduce((acc, edge) => {
+        const edgeTags = _.get(edge, 'node.frontmatter.tags')
+
+        return edgeTags ? acc.concat(edgeTags) : acc
+      }, []))
+
       tags.forEach((tag) => {
         const tagPath = `/tags/${_.kebabCase(tag)}/`
+
         createPage({
           path: tagPath,
           component: tagPages,
-          context: {
-            tag,
-          },
+          context: { tag },
         })
       })
 

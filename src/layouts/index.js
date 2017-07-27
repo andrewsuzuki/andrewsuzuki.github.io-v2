@@ -3,17 +3,14 @@ import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
-import { OtepProvider, themes } from 'otep'
+import { OtepProvider } from 'otep'
 
-import '../css/test.css'
+import Wrapper from '../components/Wrapper'
+
+import theme from '../theme'
 
 
-const myTheme = {
-  ...themes.standard,
-  // extend the standard theme at will!
-}
-
-export default class Wrapper extends React.Component {
+export default class MainLayout extends React.Component {
   render() {
     let header
     // Check if the location is either the front page or a tags page.
@@ -35,20 +32,22 @@ export default class Wrapper extends React.Component {
       )
     }
     return (
-      <OtepProvider theme={myTheme}>
+      <OtepProvider theme={theme}>
         <div>
           <Helmet defaultTitle="Welcome" titleTemplate="Andrew Suzuki | %s" />
-          <div>
-            {header}
-          </div>
-          {this.props.children()}
+          <Wrapper>
+            <div>
+              {header}
+            </div>
+            {this.props.children()}
+          </Wrapper>
         </div>
       </OtepProvider>
     )
   }
 }
 
-Wrapper.propTypes = {
+MainLayout.propTypes = {
   children: PropTypes.func.isRequired,
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,

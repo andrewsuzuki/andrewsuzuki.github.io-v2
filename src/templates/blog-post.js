@@ -6,35 +6,23 @@ import Link from 'gatsby-link'
 import ReadNext from '../components/ReadNext'
 
 
-// const query = `
-// readNext___file {
-//   children {
-//     ... on MarkdownRemark {
-//       fields { slug }
-//       excerpt(pruneLength: 200)
-//       frontmatter {
-//         title
-//       }
-//     }
-//   }
-// }
-// `
-
-
 export default class BlogPostRoute extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
 
     let tags
     let tagsSection
+
     if (post.fields.tagSlugs) {
       const tagsArray = post.fields.tagSlugs
+
       tags = tagsArray.map((tag, i) => {
         const divider =
           i < tagsArray.length - 1 &&
           <span>
             {' | '}
           </span>
+
         return (
           <span key={tag}>
             <Link to={tag}>
@@ -44,6 +32,7 @@ export default class BlogPostRoute extends React.Component {
           </span>
         )
       })
+
       tagsSection = (
         <em>
           Tagged with {tags}
@@ -68,10 +57,10 @@ export default class BlogPostRoute extends React.Component {
         <p>Posted {post.frontmatter.date}</p>
         <hr />
         <ReadNext nextPost={post.frontmatter.readNext} />
-        <p>
+        {/* <p>
           <strong>{this.props.data.site.siteMetadata.author}</strong> lives and
           works in {this.props.data.site.siteMetadata.homeCity}.
-        </p>
+        </p> */}
       </div>
     )
   }

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Typekit from 'react-typekit'
 
 import logo from './images/logo.png'
 
@@ -53,6 +54,7 @@ export default class Html extends React.Component {
         <body>
           {bodyDiv}
           {this.props.postBodyComponents}
+          <Typekit kitId="yhk2djq" />
         </body>
       </html>
     )
