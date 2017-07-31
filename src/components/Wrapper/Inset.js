@@ -48,14 +48,15 @@ const Inner = withTheme(styled.div(({ theme }) => ({
 })))
 
 
-const Inset = ({ children }) => (
-  <Container>
-    <Background />
-    <Inner>
-      {children}
-    </Inner>
-  </Container>
-)
+// const Inset = ({ children }) => (
+//   <Container>
+//     <Background />
+//     <Inner>
+//       {children}
+//     </Inner>
+//   </Container>
+// )
+const Inset = ({ children }) => children
 
 Inset.propTypes = {
   children: PropTypes.node,

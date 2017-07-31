@@ -1,11 +1,12 @@
 import React from 'react'
+import { H1 } from 'otep'
 
 
 export default class FourOFour extends React.Component {
   render() {
     return (
       <div>
-        <h1>Page not found</h1>
+        <H1>Page not found</H1>
       </div>
     )
   }

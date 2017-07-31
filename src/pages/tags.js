@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import kebabCase from 'lodash/kebabCase'
+import { H1 } from 'otep'
 
 
 export default class TagsPageRoute extends React.Component {
@@ -14,7 +15,7 @@ export default class TagsPageRoute extends React.Component {
       <div>
         <Helmet title={title} />
         <div>
-          <h1>Tags</h1>
+          <H1>Tags</H1>
           <ul>
             {allTags.map(tag =>
               <li key={tag.fieldValue}>

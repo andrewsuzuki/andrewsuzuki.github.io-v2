@@ -68,6 +68,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   })
 }
 
+
 // Add custom url pathname for blog posts.
 exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   const { createNodeField } = boundActionCreators
@@ -92,6 +93,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
     }
   }
 }
+
 
 // Add Lodash plugin
 exports.modifyWebpackConfig = ({ config, stage }) => {
