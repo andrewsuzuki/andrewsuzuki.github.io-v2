@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
-import { H1 } from 'otep'
 
 import ReadNext from '../components/ReadNext'
 
@@ -50,9 +49,9 @@ export default class BlogPostRoute extends React.Component {
           title={`${post.frontmatter.title}`}
           meta={[{ name: 'description', content: post.excerpt }]}
         />
-        <H1>
+        <h1>
           {post.frontmatter.title}
-        </H1>
+        </h1>
         {dangerDiv}
         {tagsSection}
         <p>Posted {post.frontmatter.date}</p>

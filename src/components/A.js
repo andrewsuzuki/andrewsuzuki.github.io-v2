@@ -1,15 +1,5 @@
-import { styled, A, mixins, utils } from 'otep'
+import React from 'react'
 
 
-export default styled(A)((props, t) => ({
-  display: 'inline-block',
-  padding: '0 4px',
-  margin: '0 -1px',
-
-  background: t.grayLightest,
-  color: t.baseTextColor,
-
-  ...mixins.hover({
-    background: utils.fade(t.brandSuccess, 90),
-  }),
-}))
+// eslint-disable-next-line jsx-a11y/anchor-has-content
+export default props => <a {...props} />

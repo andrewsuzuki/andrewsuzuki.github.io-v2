@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
-import { H2 } from 'otep'
 
 
 export default class TagRoute extends React.Component {
@@ -20,10 +19,10 @@ export default class TagRoute extends React.Component {
     return (
       <div>
         <Helmet title={title} />
-        <H2>
+        <h2>
           {this.props.data.allMarkdownRemark.totalCount} posts
           tagged with “{this.props.pathContext.tag}”
-        </H2>
+        </h2>
         <ul>
           {postLinks}
         </ul>
